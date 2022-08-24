@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<body>
+<div id="background" style="height:700px; width:800px; background-image: url('img/white_bg.jpg');"></div>
+<div id="character" style="height:85px; width:60px; background-image: url(img/down1.png); position:absolute; left:300px; top:150px;"></div>
+
+
+
+<script type="text/javascript">
+var counter=1;
+var uleft=300;
+var utop=150;
+
+document.onkeydown= function(a){
+
+    if(counter==1){
+    counter=2;
+}
+else if(counter==2){
+    counter=1;
+}
+
+    if(a.keyCode==37 && uleft>0 ){
+        uleft=uleft-20;
+        document.getElementById("character").style.left=uleft+"px";
+        document.getElementById("character").style.backgroundImage= "url('img/left"+counter+".png')";
+    }
+
+    else if(a.keyCode==39 && uleft<600 ){
+        uleft=uleft+20;
+        document.getElementById("character").style.left=uleft+"px";
+        document.getElementById("character").style.backgroundImage= "url('img/right"+counter+".png')";
+    }
+
+    else if(a.keyCode==38 && utop>0 ){
+        utop=utop-20;
+        document.getElementById("character").style.top=utop+"px";
+        document.getElementById("character").style.backgroundImage= "url('img/top"+counter+".png')";
+    }
+
+    else if(a.keyCode==40 && utop<600 ){
+        utop=utop+20;
+        document.getElementById("character").style.top=utop+"px";
+        document.getElementById("character").style.backgroundImage= "url('img/down"+counter+".png')";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        * {
+            padding:0px;
+            margin:0px;
+        }
+        
+        .row {
+            line-height:0px;
+        }
+
+        #ninja{
+            background-color:blak;
+            width:40px;
+            height:40px;
+            background-image:url('ninjaman/ninja.gif');
+            background-size: contain;
+            position:absolute;
+            left: 40px;
+            top: 40px;
+        }
+        
+        .wall {
+            background-color:blue;
+            width:40px;
+            height:40px;
+            display: inline-block;
+        }
+        .sushi {
+            background-color:rgb(0, 0, 0);
+            width:40px;
+            height:40px;
+            background-image:url('ninjaman/sushi.png');
+            background-size: contain;
+            display: inline-block;
+        }
+        .blank {
+            background-color:black;
+            display: inline-block;
+            width:40px;
+            height:40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="world"></div>
+    <div id="ninja"></div>
+    <script type="text/javascript">
+        var globe = [
+            [1,1,1,1,1,1],
+            [1,0,2,2,2,1],
+            [1,2,1,1,2,1],
+            [1,2,1,1,2,1],
+            [1,2,1,1,2,1],
+            [1,2,2,2,2,1],
+            [1,1,1,1,1,1],
+        ];
+        var dic={
+            1:'wall',
+            2:'sushi',
+            0:'blank'
+    }
+        
+        function myworld(){
+            output="";
+            for(var row=0;row<globe.length;row++){
+                output+="<div class='row'>"
+                    for(var x=0;x<globe[row].length;x++){
+                    output+="<div class='"+dic[globe[row][x]]+"'></div>"
+                    }
+                    output+="</div>";
+            }
+            document.getElementById("world").innerHTML= output
+        }
+        myworld()
+
+        var uleft=40;
+        var utop =40;
+
+        var ro=1;
+        var col=1;
+        
+        document.onkeydown=function(a){
+
+
+        
+        if(a.keyCode==37 && (globe[ro][col-1])!=1){
+        uleft=uleft-40;
+        document.getElementById("ninja").style.left=uleft+"px";
+        col=col-1;
+    }
+    else if(a.keyCode==39 && (globe[ro][col+1])!=1){
+        uleft=uleft+40;
+        document.getElementById("ninja").style.left=uleft+"px";
+        col=col+1;
+    }
+    else if(a.keyCode==38 && globe[ro-1][col]!=1){
+        utop=utop-40;
+        document.getElementById("ninja").style.top=utop+"px";
+        ro=ro-1;
+    }
+    else if(a.keyCode==40 && globe[ro+1][col]!=1){
+        utop=utop+40;
+        document.getElementById("ninja").style.top=utop+"px";
+        ro=ro+1;
+    }
+
+    globe[ro][col]=0;
+        myworld()
+    
+}
+    </script>
+
+</body>
+</html>

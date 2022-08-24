@@ -1,0 +1,26 @@
+
+Code 1:
+
+   Variable            value
+auntContactInfo        ["Paula", "Smith", "1234 Main Street", "St. Louis", "MO", 12345]
+
+//["Paula", "Smith", "1234 Main Street", "St. Louis", "MO", 12345]
+
+----------------------------------------------------------------------------------------------------------
+Code 2:
+
+    Variable               value
+    produce        ["apples", "oranges"]
+    frozen         ["broccoli", "ice cream"] --> ["broccoli", "ice cream", "hashbrowns"]
+
+//["broccoli", "ice cream", "hashbrowns"]
+
+----------------------------------------------------------------------------------------------------------
+Code 3:
+
+    Variable                  value
+    movieLibrary        ["Bambi", "E.T.", "Toy Story"] -->["Bambi", "E.T.", "Toy Story", "Zoro"] -->["Bambi", "Beetlejuice", "Toy Story", "Zoro"]
+
+//["Bambi", "Beetlejuice", "Toy Story", "Zoro"]
+
+
